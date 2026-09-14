@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nāzer: Air-gapped Face Matching</title>
+  <meta name="description"
+    content="nāzer is an air-gapped face-matching system. Pooled camera workers run continuous or motion-scheduled detection, match 512-d embeddings locally or against Madar, and keep biometric data inside the camera VLAN." />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="nāzer: Air-gapped Face Matching" />
+  <meta property="og:description"
+    content="Pooled camera workers. Continuous or motion-scheduled detection. 512-d embeddings matched locally or against Madar. Biometrics never leave the VLAN." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Space+Grotesk:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="hd" id="hd">
+    <div class="hd-inner">
+      <a class="hd-word" href="#hero">NĀZER.</a>
+      <nav class="hd-links">
+        <a href="#scale">SCALE</a>
+        <a href="#system">SYSTEM</a>
+        <a href="#cycles">DUTY CYCLES</a>
+        <a href="#matching">MATCHING</a>
+      </nav>
+      <a class="hd-cta" href="#deploy">REQUEST ACCESS →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="slide-hero" id="hero">
+      <div class="ticker-wrap">
+        <div class="ticker-inner">
+          <span>AIR-GAPPED &nbsp;·&nbsp; FACE MATCHING &nbsp;·&nbsp; 512-D EMBEDDINGS &nbsp;·&nbsp; CONTINUOUS +
+            SCHEDULED &nbsp;·&nbsp; EDGE NODES &nbsp;·&nbsp; MADAR SYNC &nbsp;·&nbsp; BIOMETRICS STAY ON THE VLAN
+            &nbsp;·&nbsp; POOLS, NOT A PROCESS PER CAMERA &nbsp;·&nbsp;</span><span>AIR-GAPPED &nbsp;·&nbsp; FACE
+            MATCHING &nbsp;·&nbsp; 512-D EMBEDDINGS &nbsp;·&nbsp; CONTINUOUS + SCHEDULED &nbsp;·&nbsp; EDGE NODES
+            &nbsp;·&nbsp; MADAR SYNC &nbsp;·&nbsp; BIOMETRICS STAY ON THE VLAN &nbsp;·&nbsp; POOLS, NOT A PROCESS PER
+            CAMERA &nbsp;·&nbsp;</span>
+        </div>
+      </div>
+
+      <div class="hero-stage">
+        <div class="hero-word" id="heroWord">
+          <span class="hw">N<span class="macron">Ā</span>ZER</span>
+        </div>
+
+        <div class="wall-tag" id="wallTag">// FROM MADAR · GLOBAL FACE INDEX</div>
+        <div class="hero-wall" id="heroWall"></div>
+
+        <div class="hero-foot">
+          <div class="hr-label">// AIR-GAPPED FACE MATCHING</div>
+          <p class="hero-desc">Pooled camera workers watch the feeds, match 512-d embeddings on the edge, and surface
+            watchlist hits, while the biometrics never leave the camera VLAN.</p>
+          <div class="hr-actions">
+            <a href="#system" class="hbtn fill"><span>How it runs</span><span class="a">→</span></a>
+            <a href="#deploy" class="hbtn"><span>Request access</span><span class="a">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wmarquee" aria-hidden="true">
+      <div class="wmarquee-track">
+        <span>NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER
+          &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER
+          &nbsp;/&nbsp;</span>
+        <span>NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER
+          &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER &nbsp;/&nbsp; NĀZER
+          &nbsp;/&nbsp;</span>
+      </div>
+    </div>
+
+    <section class="rail" id="scale">
+      <div class="rail-title"><span>SCALE</span></div>
+      <div class="rail-body">
+        <div class="zor-eyebrow">// ONE EDGE NODE, A STATE OF THEM</div>
+        <h2 class="sec-title">TENS OF THOUSANDS<br />OF FEEDS.<em> one model.</em></h2>
+        <p class="lead-dim">nāzer is an edge node, not a statewide monolith. Each site drives its own cameras with a
+          small pool of worker processes; Madar holds the only global face index, so edges never carry one.</p>
+        <div class="bigcount">
+          <span class="bigcount-num" id="camCount">0</span>
+          <span class="bigcount-suffix">CAMERAS / STATEWIDE POSTURE</span>
+        </div>
+        <div class="mini-grid">
+          <div class="cell reveal-up">
+            <div class="cell-num">01</div>
+            <div class="cell-metric">1</div>
+            <div class="cell-desc">Face engine per pool, not per camera. That is what turns tens of streams into
+              hundreds.</div>
+          </div>
+          <div class="cell reveal-up">
+            <div class="cell-num">02</div>
+            <div class="cell-metric">512</div>
+            <div class="cell-desc">Dimension ArcFace embedding per face, normalized and indexed with HNSW cosine
+              search.</div>
+          </div>
+          <div class="cell reveal-up">
+            <div class="cell-num">03</div>
+            <div class="cell-metric">0</div>
+            <div class="cell-desc">Bytes of image data that cross the VLAN when Madar is source of truth: vectors
+              only.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail" id="system">
+      <div class="rail-title"><span>SYSTEM</span></div>
+      <div class="rail-body">
+        <div class="zor-eyebrow">// ARCHITECTURE</div>
+        <h2 class="sec-title">CORE.<br />POOLS.<em> APP.</em></h2>
+        <p class="lead-dim">A FastAPI core supervises worker pools and owns every match. Pools never touch the database
+          or the network. They decode, infer, and push. An Electron app is the control surface.</p>
+        <div class="grid3">
+          <div class="cell reveal-up">
+            <div class="cell-num">CORE</div>
+            <div class="cell-title">SUPERVISOR</div>
+            <div class="cell-desc">Assigns cameras to the least-loaded pool, drains detections, matches, records,
+              streams events, and trims retention. One process, one DB pool.</div>
+          </div>
+          <div class="cell reveal-up">
+            <div class="cell-num">WORKERS</div>
+            <div class="cell-title">POOLS + SLOTS</div>
+            <div class="cell-desc">Each pool is a subprocess with one model and many camera slots. A wedged stream
+              kills only its own pool; the supervisor respawns it with backoff.</div>
+          </div>
+          <div class="cell reveal-up">
+            <div class="cell-num">DESKTOP</div>
+            <div class="cell-title">CONTROL APP</div>
+            <div class="cell-desc">Tray, native notifications, camera grid, live watch wall and a match queue. The
+              renderer never holds the API key.</div>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="flow-step reveal-up">
+            <div class="flow-num">01</div>
+            <div class="flow-name">DECODE</div>
+            <div class="flow-note">RTSP, file, or a local device, with reconnect in place.</div>
+          </div>
+          <div class="flow-step reveal-up">
+            <div class="flow-num">02</div>
+            <div class="flow-name">DETECT</div>
+            <div class="flow-note">SCRFD + ArcFace at the camera's detection rate.</div>
+          </div>
+          <div class="flow-step reveal-up">
+            <div class="flow-num">03</div>
+            <div class="flow-name">TRACK</div>
+            <div class="flow-note">ByteTrack keeps one id per face, emits the best frame.</div>
+          </div>
+          <div class="flow-step reveal-up">
+            <div class="flow-num">04</div>
+            <div class="flow-name">MATCH</div>
+            <div class="flow-note">Cosine top-1 locally, or Madar's global index.</div>
+          </div>
+          <div class="flow-step reveal-up">
+            <div class="flow-num">05</div>
+            <div class="flow-name">PUSH</div>
+            <div class="flow-note">Watchlist hits stream to the app and on to Madar.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail" id="cycles">
+      <div class="rail-title"><span>CYCLES</span></div>
+      <div class="rail-body">
+        <div class="zor-eyebrow">// DUTY CYCLES</div>
+        <h2 class="sec-title">ALWAYS-ON IS<br />THE EXCEPTION.<em> by design.</em></h2>
+        <p class="lead-dim">Compute is the hard ceiling. Most cameras only need to think when something moves;
+          always-on detection is reserved for watchlist and high-risk zones.</p>
+        <div class="grid2">
+          <div class="cell reveal-up">
+            <div class="cell-num">CONTINUOUS</div>
+            <div class="cell-title">WATCHLIST ZONES</div>
+            <div class="cell-desc">Detect every frame at the camera's rate. No gate, no gap, for the feeds that cannot
+              miss a face.</div>
+            <div class="cycle-bar"><i style="--fill:1"></i></div>
+            <div class="cycle-key"><span>DETECT @ FPS</span><span>100% DUTY</span></div>
+          </div>
+          <div class="cell reveal-up">
+            <div class="cell-num">SCHEDULED</div>
+            <div class="cell-title">THE FLEET DEFAULT</div>
+            <div class="cell-desc">A cheap motion gate samples the frame; motion opens a short detection burst, then
+              the slot drops back to near-zero idle.</div>
+            <div class="cycle-bar burst"><i></i></div>
+            <div class="cycle-key"><span>MOTION GATE</span><span>BURST ON MOVE</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail" id="matching">
+      <div class="rail-title"><span>MATCHING</span></div>
+      <div class="rail-body">
+        <div class="zor-eyebrow">// 1 - COSINE DISTANCE</div>
+        <h2 class="sec-title">LOCAL.<br />OR MADAR.<em> your call.</em></h2>
+        <p class="lead-dim">Every detection is persisted, then searched: against a local pgvector index of enrollments,
+          or against Madar's <code>entity_faces</code> when it is the source of truth. Score above threshold, outside
+          cooldown, becomes a match.</p>
+        <div class="grid2">
+          <div class="cell reveal-up">
+            <div class="cell-num">LOCAL</div>
+            <div class="cell-title">PGVECTOR</div>
+            <div class="cell-desc">Self-contained. HNSW cosine index over 512-d enrollments, straight in Postgres.
+              Nothing leaves the node.</div>
+          </div>
+          <div class="cell reveal-up">
+            <div class="cell-num">MADAR</div>
+            <div class="cell-title">SOURCE OF TRUTH</div>
+            <div class="cell-desc">Search the central index instead. A local identity row is cached for the returned
+              entity so match records stay valid.</div>
+          </div>
+        </div>
+        <div class="meter reveal-up">
+          <div class="meter-top"><span>THRESHOLD</span><span>RUNTIME-TUNABLE</span></div>
+          <div class="meter-track">
+            <div class="meter-fill"></div>
+            <div class="meter-mark"></div>
+          </div>
+          <div class="meter-note">score = 1 − distance. Tune it live from the app, with a per-identity, per-camera
+            cooldown so the queue stays signal, not noise.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="deploy">
+      <div class="cta-inner reveal-up">
+        <div class="cta-title">RUN THE WALL<br />ON YOUR OWN METAL.</div>
+        <p class="cta-lead">Running end to end: pools, duty cycles, matching, live wall. Access is limited while we ship
+          betas to early teams.</p>
+        <div class="hr-actions">
+          <a href="#" class="hbtn fill js-modal"><span>Get the build</span><span class="a">↗</span></a>
+          <a href="#" class="hbtn js-modal"><span>Contact ops</span><span class="a">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <span class="ft-word">NĀZER.</span>
+    <span class="ft-mid">AIR-GAPPED FACE MATCHING</span>
+    <a class="ft-ver" href="https://aix-32.github.io/Pazator/" target="_blank" rel="noopener">PAZATOR ↗</a>
+  </footer>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box">
+      <div class="modal-label">// STATUS</div>
+      <div class="modal-title">LIVE.<br />LIMITED<span class="zor-italic">.</span></div>
+      <p class="modal-lead">nāzer works end to end today: pools, scheduled bursts, matching, the live wall. What's
+        limited is access, not the build.</p>
+      <p class="modal-sub">We're running betas with early teams before opening self-serve signups. Builds and updates
+        land on the Discord first.</p>
+      <div class="modal-actions">
+        <a href="https://discord.gg/jX4Nm9Hq8P" target="_blank" rel="noopener" class="hbtn fill"><span>Join the
+            Discord</span><span class="a">↗</span></a>
+        <button type="button" class="hbtn" data-close><span>Close</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
