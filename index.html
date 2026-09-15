@@ -33,7 +33,7 @@
         <a href="#cycles">DUTY CYCLES</a>
         <a href="#matching">MATCHING</a>
       </nav>
-      <a class="hd-cta" href="#deploy">REQUEST ACCESS →</a>
+      <a class="hd-cta" href="#deploy">GET ACCESS →</a>
     </div>
   </header>
 
@@ -42,12 +42,11 @@
     <section class="slide-hero" id="hero">
       <div class="ticker-wrap">
         <div class="ticker-inner">
-          <span>AIR-GAPPED &nbsp;·&nbsp; FACE MATCHING &nbsp;·&nbsp; 512-D EMBEDDINGS &nbsp;·&nbsp; CONTINUOUS +
-            SCHEDULED &nbsp;·&nbsp; EDGE NODES &nbsp;·&nbsp; MADAR SYNC &nbsp;·&nbsp; BIOMETRICS STAY ON THE VLAN
-            &nbsp;·&nbsp; POOLS, NOT A PROCESS PER CAMERA &nbsp;·&nbsp;</span><span>AIR-GAPPED &nbsp;·&nbsp; FACE
-            MATCHING &nbsp;·&nbsp; 512-D EMBEDDINGS &nbsp;·&nbsp; CONTINUOUS + SCHEDULED &nbsp;·&nbsp; EDGE NODES
-            &nbsp;·&nbsp; MADAR SYNC &nbsp;·&nbsp; BIOMETRICS STAY ON THE VLAN &nbsp;·&nbsp; POOLS, NOT A PROCESS PER
-            CAMERA &nbsp;·&nbsp;</span>
+          <span>FACE MATCHING &nbsp;·&nbsp; LOCAL PROCESSING &nbsp;·&nbsp; 512-D EMBEDDINGS &nbsp;·&nbsp; CONTINUOUS
+            OR SCHEDULED &nbsp;·&nbsp; MADAR SYNC &nbsp;·&nbsp; BIOMETRICS STAY ON THE VLAN
+            &nbsp;·&nbsp;</span><span>FACE MATCHING &nbsp;·&nbsp; LOCAL PROCESSING &nbsp;·&nbsp; 512-D EMBEDDINGS
+            &nbsp;·&nbsp; CONTINUOUS OR SCHEDULED &nbsp;·&nbsp; MADAR SYNC &nbsp;·&nbsp; BIOMETRICS STAY ON THE VLAN
+            &nbsp;·&nbsp;</span>
         </div>
       </div>
 
@@ -56,16 +55,16 @@
           <span class="hw">N<span class="macron">Ā</span>ZER</span>
         </div>
 
-        <div class="wall-tag" id="wallTag">// FROM MADAR · GLOBAL FACE INDEX</div>
+        <div class="wall-tag" id="wallTag">// FROM MADAR · FACE INDEX</div>
         <div class="hero-wall" id="heroWall"></div>
 
         <div class="hero-foot">
           <div class="hr-label">// AIR-GAPPED FACE MATCHING</div>
-          <p class="hero-desc">Pooled camera workers watch the feeds, match 512-d embeddings on the edge, and surface
-            watchlist hits, while the biometrics never leave the camera VLAN.</p>
+          <p class="hero-desc">Pooled camera workers read the feeds, match 512-d embeddings locally, and surface
+            watchlist hits. Biometrics stay inside the camera VLAN.</p>
           <div class="hr-actions">
             <a href="#system" class="hbtn fill"><span>How it runs</span><span class="a">→</span></a>
-            <a href="#deploy" class="hbtn"><span>Request access</span><span class="a">→</span></a>
+            <a href="#deploy" class="hbtn"><span>Get access</span><span class="a">→</span></a>
           </div>
         </div>
       </div>
@@ -85,13 +84,13 @@
     <section class="rail" id="scale">
       <div class="rail-title"><span>SCALE</span></div>
       <div class="rail-body">
-        <div class="zor-eyebrow">// ONE EDGE NODE, A STATE OF THEM</div>
+        <div class="zor-eyebrow">// ONE NODE PER SITE</div>
         <h2 class="sec-title">TENS OF THOUSANDS<br />OF FEEDS.<em> one model.</em></h2>
-        <p class="lead-dim">nāzer is an edge node, not a statewide monolith. Each site drives its own cameras with a
-          small pool of worker processes; Madar holds the only global face index, so edges never carry one.</p>
+        <p class="lead-dim">nāzer runs as an edge node, not one large central system. Each site drives its own cameras
+          with a small pool of worker processes; Madar holds the only global face index, so edges never carry one.</p>
         <div class="bigcount">
           <span class="bigcount-num" id="camCount">0</span>
-          <span class="bigcount-suffix">CAMERAS / STATEWIDE POSTURE</span>
+          <span class="bigcount-suffix">CAMERAS ACROSS SITES</span>
         </div>
         <div class="mini-grid">
           <div class="cell reveal-up">
@@ -177,14 +176,14 @@
       <div class="rail-title"><span>CYCLES</span></div>
       <div class="rail-body">
         <div class="zor-eyebrow">// DUTY CYCLES</div>
-        <h2 class="sec-title">ALWAYS-ON IS<br />THE EXCEPTION.<em> by design.</em></h2>
+        <h2 class="sec-title">ALWAYS-ON IS<br />THE EXCEPTION.</h2>
         <p class="lead-dim">Compute is the hard ceiling. Most cameras only need to think when something moves;
           always-on detection is reserved for watchlist and high-risk zones.</p>
         <div class="grid2">
           <div class="cell reveal-up">
             <div class="cell-num">CONTINUOUS</div>
             <div class="cell-title">WATCHLIST ZONES</div>
-            <div class="cell-desc">Detect every frame at the camera's rate. No gate, no gap, for the feeds that cannot
+            <div class="cell-desc">Detect every frame at the camera's rate, for the feeds that cannot
               miss a face.</div>
             <div class="cycle-bar"><i style="--fill:1"></i></div>
             <div class="cycle-key"><span>DETECT @ FPS</span><span>100% DUTY</span></div>
@@ -230,19 +229,19 @@
             <div class="meter-mark"></div>
           </div>
           <div class="meter-note">score = 1 − distance. Tune it live from the app, with a per-identity, per-camera
-            cooldown so the queue stays signal, not noise.</div>
+            cooldown so the queue stays useful.</div>
         </div>
       </div>
     </section>
 
     <section class="cta-section" id="deploy">
       <div class="cta-inner reveal-up">
-        <div class="cta-title">RUN THE WALL<br />ON YOUR OWN METAL.</div>
+        <div class="cta-title">RUN IT ON<br />YOUR OWN SERVERS.</div>
         <p class="cta-lead">Running end to end: pools, duty cycles, matching, live wall. Access is limited while we ship
           betas to early teams.</p>
         <div class="hr-actions">
           <a href="#" class="hbtn fill js-modal"><span>Get the build</span><span class="a">↗</span></a>
-          <a href="#" class="hbtn js-modal"><span>Contact ops</span><span class="a">↗</span></a>
+          <a href="#" class="hbtn js-modal"><span>Contact</span><span class="a">↗</span></a>
         </div>
       </div>
     </section>
@@ -259,9 +258,9 @@
     <div class="modal-backdrop" data-close></div>
     <div class="modal-box">
       <div class="modal-label">// STATUS</div>
-      <div class="modal-title">LIVE.<br />LIMITED<span class="zor-italic">.</span></div>
-      <p class="modal-lead">nāzer works end to end today: pools, scheduled bursts, matching, the live wall. What's
-        limited is access, not the build.</p>
+      <div class="modal-title">LIVE.<br />LIMITED ACCESS<span class="zor-italic">.</span></div>
+      <p class="modal-lead">nāzer works end to end today: pools, scheduled bursts, matching, the live wall. Access is
+        limited, not the build.</p>
       <p class="modal-sub">We're running betas with early teams before opening self-serve signups. Builds and updates
         land on the Discord first.</p>
       <div class="modal-actions">
